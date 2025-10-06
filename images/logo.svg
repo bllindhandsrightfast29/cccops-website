@@ -1,0 +1,51 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Capsule Corp inspired Triple C badge with modern tactical aesthetic -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b2cbf;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradient2)" stroke="url(#gradient1)" stroke-width="3"/>
+
+  <!-- Hexagon border (tactical feel) -->
+  <path d="M 100,20 L 165,55 L 165,145 L 100,180 L 35,145 L 35,55 Z"
+        fill="none"
+        stroke="url(#gradient1)"
+        stroke-width="2"
+        opacity="0.4"/>
+
+  <!-- Triple C lettermark -->
+  <g transform="translate(100, 100)">
+    <!-- Center C -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#00d4ff" stroke-width="8"
+            stroke-dasharray="200 70" transform="rotate(-90)"/>
+
+    <!-- Middle ring accent -->
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#7b2cbf" stroke-width="3" opacity="0.6"/>
+
+    <!-- Inner detail circles -->
+    <circle cx="-15" cy="0" r="4" fill="#00d4ff"/>
+    <circle cx="15" cy="0" r="4" fill="#00d4ff"/>
+    <circle cx="0" cy="-15" r="4" fill="#7b2cbf"/>
+
+    <!-- Stylized "C³" indicator -->
+    <text x="-10" y="8"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold"
+          fill="#ffffff">C³</text>
+  </g>
+
+  <!-- Corner accent marks (tactical corners) -->
+  <path d="M 25,25 L 35,25 L 35,35" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+  <path d="M 175,25 L 165,25 L 165,35" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+  <path d="M 25,175 L 35,175 L 35,165" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+  <path d="M 175,175 L 165,175 L 165,165" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+</svg>
