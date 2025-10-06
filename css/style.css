@@ -252,7 +252,7 @@ body {
     background: var(--secondary-color);
     border: 1px solid rgba(0, 212, 255, 0.1);
     border-radius: 8px;
-    padding: 2rem;
+    overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
@@ -262,9 +262,38 @@ body {
     border-color: var(--accent-color);
 }
 
-.capability-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.capability-image-header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.capability-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.capability-card:hover .capability-img {
+    transform: scale(1.05);
+}
+
+.capability-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 14, 39, 0.95) 0%, rgba(10, 14, 39, 0.7) 70%, transparent 100%);
+    padding: 1.5rem 1.5rem 1rem;
+}
+
+.capability-overlay h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 .capability-card h3 {
@@ -276,6 +305,7 @@ body {
 .capability-card ul {
     list-style: none;
     color: var(--text-secondary);
+    padding: 1.5rem 2rem;
 }
 
 .capability-card ul li {
@@ -322,6 +352,57 @@ body {
     transform: translateX(10px);
 }
 
+.solution-card-image {
+    padding: 0;
+    overflow: hidden;
+}
+
+.solution-card-image p,
+.solution-card-image .repo-link {
+    padding: 0 2rem;
+}
+
+.solution-card-image p {
+    padding-top: 1.5rem;
+}
+
+.solution-card-image .repo-link {
+    padding-bottom: 2rem;
+}
+
+.solution-image-header {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.solution-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.solution-card:hover .solution-img {
+    transform: scale(1.05);
+}
+
+.solution-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 14, 39, 0.95) 0%, rgba(10, 14, 39, 0.6) 70%, transparent 100%);
+    padding: 1rem 1.5rem 0.8rem;
+}
+
+.solution-overlay h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
 .solution-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -331,6 +412,204 @@ body {
 .solution-card p {
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+.solution-card .tech-stack {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.solution-card .repo-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.solution-card .repo-link:hover {
+    color: var(--text-primary);
+}
+
+/* Open Source Section */
+.opensource {
+    padding: 6rem 0;
+    background: var(--primary-color);
+}
+
+.opensource h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dev-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.dev-category {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.dev-category:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.dev-category.active-project {
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.dev-category.capability {
+    border-color: rgba(123, 44, 191, 0.2);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.status-badge.live {
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+}
+
+.status-badge.development {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    border: 1px solid #ffc107;
+}
+
+.status-badge.capability {
+    background: rgba(123, 44, 191, 0.15);
+    color: var(--accent-secondary);
+    border: 1px solid var(--accent-secondary);
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.category-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.view-repo {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.view-repo:hover {
+    color: var(--text-primary);
+}
+
+.dev-category > p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.tech-list {
+    list-style: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.tech-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tech-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.tech-stack-showcase {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tech-stack-showcase h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.tech-badge {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(123, 44, 191, 0.1) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.tech-badge:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(123, 44, 191, 0.2) 100%);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.github-cta {
+    text-align: center;
+}
+
+.github-cta p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 
 /* Training Section */
