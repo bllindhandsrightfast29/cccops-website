@@ -137,28 +137,160 @@ document.addEventListener('DOMContentLoaded', function() {
         statsObserver.observe(statsSection);
     }
 
-    // Form validation
+    // Contact form API integration
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
+            const organization = document.getElementById('organization').value.trim();
             const message = document.getElementById('message').value.trim();
+            const honeypot = document.querySelector('input[name="_gotcha"]').value;
 
+            // Client-side validation
             if (!name || !email || !message) {
-                e.preventDefault();
-                alert('Please fill in all required fields.');
+                showFormMessage('Please fill in all required fields.', 'error');
                 return;
             }
 
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                e.preventDefault();
-                alert('Please enter a valid email address.');
+                showFormMessage('Please enter a valid email address.', 'error');
                 return;
             }
+
+            // Show loading state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span class="spinner"></span> Sending...';
+
+            try {
+                // HelpDesk Pro API endpoint
+                const apiUrl = 'https://helpdeskpro-oahd.onrender.com/api/public/contact';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        organization: organization || '',
+                        message: message,
+                        honeypot: honeypot
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Success - show ticket number
+                    let successMsg = data.message || 'Thank you for your message!';
+                    if (data.ticket_number && data.ticket_number !== 'TKT-RECEIVED') {
+                        successMsg += ` Your reference number is ${data.ticket_number}.`;
+                    }
+                    showFormMessage(successMsg, 'success');
+                    contactForm.reset();
+
+                    // Scroll to success message
+                    const formMessage = document.getElementById('form-message');
+                    if (formMessage) {
+                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    // Error from API
+                    const errorMessage = data.error || 'An error occurred. Please try again.';
+                    showFormMessage(errorMessage, 'error');
+                }
+            } catch (error) {
+                console.error('Contact form error:', error);
+                showFormMessage('Unable to send message. Please try again or contact us directly at consultingbytriplec@gmail.com', 'error');
+            } finally {
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
         });
+    }
+
+    // Helper function to show form messages
+    function showFormMessage(message, type) {
+        let messageDiv = document.getElementById('form-message');
+
+        if (!messageDiv) {
+            messageDiv = document.createElement('div');
+            messageDiv.id = 'form-message';
+            contactForm.appendChild(messageDiv);
+        }
+
+        messageDiv.textContent = message;
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.style.display = 'block';
+
+        // Add styles if not already present
+        if (!document.getElementById('form-message-styles')) {
+            const styles = document.createElement('style');
+            styles.id = 'form-message-styles';
+            styles.textContent = `
+                .form-message {
+                    margin-top: 20px;
+                    padding: 16px 20px;
+                    border-radius: 6px;
+                    font-size: 15px;
+                    line-height: 1.5;
+                    animation: slideIn 0.3s ease;
+                }
+                .form-message.success {
+                    background-color: #d1fae5;
+                    color: #065f46;
+                    border-left: 4px solid #10b981;
+                }
+                .form-message.error {
+                    background-color: #fee2e2;
+                    color: #991b1b;
+                    border-left: 4px solid #ef4444;
+                }
+                .spinner {
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border-top-color: white;
+                    border-radius: 50%;
+                    animation: spin 0.6s linear infinite;
+                    margin-right: 8px;
+                }
+                @keyframes spin {
+                    to { transform: rotate(360deg); }
+                }
+                @keyframes slideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                button[type="submit"]:disabled {
+                    opacity: 0.7;
+                    cursor: not-allowed;
+                }
+            `;
+            document.head.appendChild(styles);
+        }
+
+        // Auto-hide success messages after 8 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 8000);
+        }
     }
 
     // Parallax effect for hero

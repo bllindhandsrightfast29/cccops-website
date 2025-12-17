@@ -24,12 +24,15 @@
     </script>
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <div class="logo">
-                <img src="images/logo.svg" alt="Triple C Logo" class="logo-img">
-                <span class="logo-text">TRIPLE C</span>
+                <img src="images/logo.svg" alt="Triple C Consulting - Home" class="logo-img">
+                <span class="logo-text" aria-hidden="true">TRIPLE C</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#capabilities">Capabilities</a></li>
@@ -48,6 +51,7 @@
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -130,43 +134,84 @@
     </section>
 
     <!-- Who We Serve - Military Branches -->
-    <section class="branches">
+    <section class="branches" aria-labelledby="branches-heading">
         <div class="container">
             <div class="section-header">
-                <h2>Who We Serve</h2>
+                <h2 id="branches-heading">Who We Serve</h2>
                 <p>Supporting America's warfighters across every branch and agency</p>
             </div>
-            <div class="branches-grid">
-                <div class="branch-item">
-                    <div class="branch-icon">🎖️</div>
+            <div class="branches-grid" role="list">
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7l3-7z"/>
+                        </svg>
+                    </div>
                     <span>U.S. Army</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">⚓</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 21c-1.5-1.5-6-6-6-11a6 6 0 1112 0c0 5-4.5 9.5-6 11z"/>
+                            <circle cx="12" cy="10" r="2"/>
+                            <path d="M8 21h8"/>
+                        </svg>
+                    </div>
                     <span>U.S. Navy</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">✈️</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M2 12h4l3-9 6 18 3-9h4"/>
+                        </svg>
+                    </div>
                     <span>U.S. Air Force</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">🦅</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 3L4 9v12h16V9l-8-6z"/>
+                            <path d="M9 21V12h6v9"/>
+                            <path d="M12 7v2"/>
+                        </svg>
+                    </div>
                     <span>U.S. Marines</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">🚀</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                            <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
                     <span>Space Force</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">🛡️</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
                     <span>DoD / IC</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">🏛️</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <path d="M3 21h18M5 21V7l7-4 7 4v14"/>
+                            <path d="M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/>
+                        </svg>
+                    </div>
                     <span>Federal Agencies</span>
                 </div>
-                <div class="branch-item">
-                    <div class="branch-icon">🌐</div>
+                <div class="branch-item" role="listitem">
+                    <div class="branch-icon" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        </svg>
+                    </div>
                     <span>Allied Nations</span>
                 </div>
             </div>
@@ -285,7 +330,7 @@
             <div class="capability-grid">
                 <div class="capability-card featured">
                     <div class="capability-image-header">
-                        <img src="images/capabilities/tak-photo.png" alt="Mobile Platform" class="capability-img">
+                        <img src="images/capabilities/tak-photo.png" alt="TAK mobile application interface showing tactical map with real-time tracking and communication features" class="capability-img">
                         <div class="capability-badge">Primary Competency</div>
                     </div>
                     <div class="capability-content">
@@ -410,7 +455,7 @@
                 <div class="solution-card featured">
                     <div class="solution-status live">Active</div>
                     <div class="solution-image">
-                        <img src="images/capabilities/visus-dashboard.png" alt="VISUS Platform">
+                        <img src="images/capabilities/visus-dashboard.png" alt="VISUS intelligence platform dashboard displaying multi-sensor data fusion with camera feeds, drone imagery, and real-time situational awareness maps">
                     </div>
                     <div class="solution-content">
                         <h3>VISUS Intelligence Platform</h3>
@@ -420,7 +465,7 @@
                             <span>Real-time processing</span>
                             <span>AI-enhanced analysis</span>
                         </div>
-                        <a href="https://github.com/bllindhandsrightfast29" class="solution-link" target="_blank">View on GitHub</a>
+                        <a href="https://github.com/bllindhandsrightfast29" class="solution-link" target="_blank" rel="noopener noreferrer" aria-label="View VISUS Intelligence Platform on GitHub (opens in new tab)">View on GitHub</a>
                     </div>
                 </div>
 
@@ -434,7 +479,7 @@
                             <span>Pipeline integration</span>
                             <span>Threat detection</span>
                         </div>
-                        <a href="https://github.com/bllindhandsrightfast29" class="solution-link" target="_blank">View on GitHub</a>
+                        <a href="https://github.com/bllindhandsrightfast29" class="solution-link" target="_blank" rel="noopener noreferrer" aria-label="View orbit-sec-pipeline on GitHub (opens in new tab)">View on GitHub</a>
                     </div>
                 </div>
 
@@ -624,6 +669,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -646,29 +693,36 @@
                         </div>
                     </div>
                     <div class="contact-social">
-                        <a href="https://github.com/bllindhandsrightfast29" target="_blank" class="social-link">GitHub</a>
-                        <a href="https://www.linkedin.com" target="_blank" class="social-link">LinkedIn</a>
+                        <a href="https://github.com/bllindhandsrightfast29" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit Triple C Consulting on GitHub (opens in new tab)">GitHub</a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Visit Triple C Consulting on LinkedIn (opens in new tab)">LinkedIn</a>
                     </div>
                 </div>
                 <div class="contact-form-container">
-                    <form class="contact-form" action="mailto:consultingbytriplec@gmail.com" method="post" enctype="text/plain">
+                    <!-- Contact form powered by Triple C Contact API -->
+                    <form class="contact-form" aria-labelledby="contact-form-heading">
+                        <h3 id="contact-form-heading" class="visually-hidden">Contact Form</h3>
+
+                        <!-- Honeypot field for spam protection (hidden from users) -->
+                        <input type="text" name="_gotcha" style="display:none" aria-hidden="true" tabindex="-1">
+
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">Name <span aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true" autocomplete="name" placeholder="Your full name">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email <span aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+                            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="your.email@example.com">
                         </div>
                         <div class="form-group">
                             <label for="organization">Organization</label>
-                            <input type="text" id="organization" name="organization">
+                            <input type="text" id="organization" name="organization" autocomplete="organization" placeholder="Company or agency name">
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Message <span aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+                            <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="How can we help you?"></textarea>
                         </div>
                         <button type="submit" class="cta-button primary">Send Message</button>
+                        <p class="form-note">We typically respond within 24 hours.</p>
                     </form>
                 </div>
             </div>
@@ -707,7 +761,7 @@
                     <div class="footer-column">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="https://github.com/bllindhandsrightfast29" target="_blank">GitHub</a></li>
+                            <li><a href="https://github.com/bllindhandsrightfast29" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in new tab)">GitHub</a></li>
                             <li><a href="#solutions">Solutions</a></li>
                         </ul>
                     </div>
