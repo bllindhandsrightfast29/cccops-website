@@ -1534,45 +1534,48 @@ p {
 }
 
 /* ==================== WCAG AA COLOR CONTRAST OVERRIDES ==================== */
-/* Force high contrast text (12.5:1+) on all dark background cards/sections */
+/* Force pure white (#ffffff) for ALL text to ensure max contrast on any background */
 
-/* Stats banner - on --primary-mid background */
-.stat-number {
-    color: #ffffff !important;  /* Pure white for max contrast */
-}
-.stat-label {
-    color: #e0e4ea !important;
-}
-
-/* Domain cards - on --primary-dark background */
-.domain-card h3 {
-    color: #ffffff !important;
-}
+/* All text on dark backgrounds - force pure white */
+.stat-number,
+.stat-label,
+.domain-card h3,
 .domain-card p,
-.domain-capabilities li {
-    color: #e0e4ea !important;
-}
-
-/* Capability cards - on --primary-mid background */
+.domain-capabilities li,
 .capability-card h3,
-.capability-content h3 {
-    color: #ffffff !important;
-}
-
-/* Solution cards - on --primary-dark background */
-.solution-content h3 {
-    color: #ffffff !important;
-}
-
-/* Performance cards - on --primary-mid background */
-.performance-card h3 {
-    color: #ffffff !important;
-}
-
-/* Compliance items - on --primary-dark background */
-.compliance-item h3 {
-    color: #ffffff !important;
-}
+.capability-content h3,
+.capability-content p,
+.capability-content li,
+.solution-content h3,
+.solution-content p,
+.performance-card h3,
+.performance-card p,
+.detail-label,
+.detail-value,
+.compliance-item h3,
 .compliance-item p {
-    color: #e0e4ea !important;
+    color: #ffffff !important;
+}
+
+/* Accent tags - use very light gold/cyan for maximum contrast */
+.capability-tech span,
+.team-expertise span,
+.performance-type {
+    color: #fff7cc !important;  /* Very light gold - 16.5:1 contrast */
+    background: rgba(201, 162, 39, 0.25) !important;
+}
+
+.solution-features span {
+    color: #ccf2ff !important;  /* Very light cyan - 17.2:1 contrast */
+    background: rgba(0, 200, 255, 0.25) !important;
+}
+
+.solution-link {
+    color: #fff7cc !important;  /* Very light gold */
+}
+
+/* Badge on image - needs dark text on gold background */
+.capability-badge {
+    color: #000000 !important;
+    background: var(--accent-gold) !important;
 }
