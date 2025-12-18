@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Contact Form Submission</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f4;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f4f4f4; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 40px 40px 30px; border-radius: 8px 8px 0 0;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">New Contact Form Submission</h1>
+                            <p style="margin: 10px 0 0; color: #c5c5c5; font-size: 14px;">Submission #{submission_id}</p>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px;">
+                            <!-- Alert Badge -->
+                            <div style="display: inline-block; background-color: #0ea5e9; color: #ffffff; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; margin-bottom: 30px;">
+                                New Lead
+                            </div>
+
+                            <!-- Submission Details -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 20px;">
+                                <tr>
+                                    <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
+                                        <p style="margin: 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Contact Name</p>
+                                        <p style="margin: 8px 0 0; color: #1f2937; font-size: 16px; font-weight: 500;">{name}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
+                                        <p style="margin: 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Email Address</p>
+                                        <p style="margin: 8px 0 0;">
+                                            <a href="mailto:{email}" style="color: #0ea5e9; font-size: 16px; text-decoration: none; font-weight: 500;">{email}</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
+                                        <p style="margin: 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Organization</p>
+                                        <p style="margin: 8px 0 0; color: #1f2937; font-size: 16px; font-weight: 500;">{organization}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 15px 0;">
+                                        <p style="margin: 0; color: #6b7280; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Message</p>
+                                        <div style="margin: 15px 0 0; padding: 20px; background-color: #f9fafb; border-left: 4px solid #0ea5e9; border-radius: 4px;">
+                                            <p style="margin: 0; color: #374151; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">{message}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Action Buttons -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top: 40px;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="mailto:{email}?subject=Re: Your inquiry to Triple C Consulting" style="display: inline-block; background-color: #0ea5e9; color: #ffffff; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 15px; margin: 0 10px;">Reply to {name}</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f9fafb; padding: 30px 40px; border-radius: 0 0 8px 8px; border-top: 1px solid #e5e7eb;">
+                            <p style="margin: 0; color: #6b7280; font-size: 13px; line-height: 1.6;">
+                                This notification was sent from the <strong>cccops.com</strong> contact form.<br>
+                                Submission ID: #{submission_id}<br>
+                                Time: <span style="font-family: 'Courier New', monospace;">Auto-timestamped by system</span>
+                            </p>
+                            <p style="margin: 20px 0 0; color: #9ca3af; font-size: 12px;">
+                                Triple C Consulting | Defense Technology Integration<br>
+                                <a href="https://cccops.com" style="color: #0ea5e9; text-decoration: none;">cccops.com</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

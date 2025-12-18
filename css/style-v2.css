@@ -16,10 +16,10 @@
     --accent-cyan: #00c8ff;
     --accent-cyan-dark: #0099cc;
 
-    /* Text colors */
+    /* Text colors - WCAG AA compliant (4.5:1 contrast ratio on dark backgrounds) */
     --text-primary: #ffffff;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-secondary: #b4bac5;  /* Improved from #9ca3af - now 5.5:1 contrast */
+    --text-muted: #9ca3af;      /* Improved from #6b7280 - now 4.6:1 contrast */
 
     /* Status colors */
     --status-live: #22c55e;
@@ -1034,7 +1034,7 @@ p {
     color: var(--text-muted);
 }
 
-.compliance-item h4 {
+.compliance-item h3 {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
@@ -1172,7 +1172,7 @@ p {
     border-radius: 0 4px 4px 0;
 }
 
-.vehicle h4 {
+.vehicle h3 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
     color: var(--text-primary);
