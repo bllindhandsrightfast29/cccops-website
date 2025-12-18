@@ -607,6 +607,7 @@ p {
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    color: #e0e4ea;  /* High contrast for card content */
 }
 
 .domain-capabilities {
@@ -822,6 +823,7 @@ p {
 .solution-content > p {
     margin-bottom: 1.5rem;
     line-height: 1.7;
+    color: #e0e4ea;  /* High contrast for card content */
 }
 
 .solution-features {
@@ -1529,4 +1531,48 @@ p {
     h2 {
         font-size: 2rem;
     }
+}
+
+/* ==================== WCAG AA COLOR CONTRAST OVERRIDES ==================== */
+/* Force high contrast text (12.5:1+) on all dark background cards/sections */
+
+/* Stats banner - on --primary-mid background */
+.stat-number {
+    color: #ffffff !important;  /* Pure white for max contrast */
+}
+.stat-label {
+    color: #e0e4ea !important;
+}
+
+/* Domain cards - on --primary-dark background */
+.domain-card h3 {
+    color: #ffffff !important;
+}
+.domain-card p,
+.domain-capabilities li {
+    color: #e0e4ea !important;
+}
+
+/* Capability cards - on --primary-mid background */
+.capability-card h3,
+.capability-content h3 {
+    color: #ffffff !important;
+}
+
+/* Solution cards - on --primary-dark background */
+.solution-content h3 {
+    color: #ffffff !important;
+}
+
+/* Performance cards - on --primary-mid background */
+.performance-card h3 {
+    color: #ffffff !important;
+}
+
+/* Compliance items - on --primary-dark background */
+.compliance-item h3 {
+    color: #ffffff !important;
+}
+.compliance-item p {
+    color: #e0e4ea !important;
 }
