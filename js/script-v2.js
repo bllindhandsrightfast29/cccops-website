@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 // HelpDesk Pro API endpoint
-                const apiUrl = 'https://helpdeskpro-oahd.onrender.com/api/public/contact';
+                const apiUrl = 'https://support.cccops.com/api/public/contact';
 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
