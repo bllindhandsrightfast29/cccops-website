@@ -168,13 +168,14 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<span class="spinner"></span> Sending...';
 
             try {
-                // HelpDesk Pro API endpoint
-                const apiUrl = 'https://support.cccops.com/api/public/contact';
+                // Google Apps Script web app: emails consultingbytriplec@gmail.com and logs to a sheet
+                const apiUrl = 'https://script.google.com/macros/s/AKfycbxPcl1P1b_8e0HpYi_F4DBSf0yQG-ApDxqwLvaNGZP0nekOBKIyjX9okd7YBUoNbhUS1A/exec';
 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
+                        // text/plain keeps this a simple request, so no CORS preflight
+                        'Content-Type': 'text/plain;charset=utf-8',
                     },
                     body: JSON.stringify({
                         name: name,
